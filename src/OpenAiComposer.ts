@@ -239,7 +239,9 @@ export namespace OpenAiComposer {
       return {
         method: route.method as "get",
         path: route.path,
-        name: route.accessor.join("_"),
+        name: operation.operationId
+          ? operation.operationId
+          : route.accessor.join("_"),
         strict: true,
         parameters,
         separated: options.separate
